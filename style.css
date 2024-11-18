@@ -135,3 +135,7 @@ ul.songs li {
   display: flex;
   justify-content: center;
 }
+
+.centered button {
+  transform: scale(1.3);
+}
