@@ -69,17 +69,27 @@ function showData(data) {
   if (data.prev || data.next) {
     more.innerHTML = `
       ${data.prev ? `
-        <button class="btn" onClick="getMoreSongs(${data.prev})"> 
+        <button class="btn" onClick="getMoreSongs('${data.prev}')"> 
         Previous 
         </button>` : ''}
       ${data.next ? `
-        <button class="btn" onClick="getMoreSongs(${data.next})"> 
-        Previous 
+        <button class="btn" onClick="getMoreSongs('${data.next}')"> 
+        Next
         </button>` : ''}
     `;
   } else {
     more.innerHTML = '';
   }
+}
+
+//GET MORE SONGS (Previous and Next)
+//we need to overcome CORS here. use Heroku-anywhere proxy server
+async function getMoreSongs(url) {
+  console.log(url)
+  const response = await fetch(`http://cors-anywhere.herokuapp.com/${url}`);
+  const data = await response.json();
+
+  showData(data);
 }
 
 //Event Listeners
@@ -95,3 +105,6 @@ form.addEventListener('submit', e => {
     searchSongs(searchTerm);
   }
 })
+
+
+//CORS has to do with cross domain policies. Each website has it's own policies. 
