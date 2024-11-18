@@ -62,16 +62,24 @@ function showData(data) {
          </button>
        </li>
         `).join(" ")
-      };
+      }
     </ul>
   `;
 
-  // if (data.prev || data.next) {
-  //   more.innerHTML = `
-  //     ${data.prev ? '<button class="btn"> Previous </button>' : ''}
-  //     ${data.next ? '<button class="btn"> Previous </button>' : ''}
-  //   `;
-  // }
+  if (data.prev || data.next) {
+    more.innerHTML = `
+      ${data.prev ? `
+        <button class="btn" onClick="getMoreSongs(${data.prev})"> 
+        Previous 
+        </button>` : ''}
+      ${data.next ? `
+        <button class="btn" onClick="getMoreSongs(${data.next})"> 
+        Previous 
+        </button>` : ''}
+    `;
+  } else {
+    more.innerHTML = '';
+  }
 }
 
 //Event Listeners
