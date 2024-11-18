@@ -111,4 +111,27 @@ ul.songs {
 
 ul.songs li {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* any extra space goes between elements. */
+  margin: 10px 0;
+}
+
+.container {
+  margin: 30px auto;
+  max-width: 100%;
+  width: 500px;
+}
+
+.container h2 {
+  font-weight: 300;
+}
+
+.container p {
+  text-align: center;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
 }
